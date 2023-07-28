@@ -1,0 +1,37 @@
+#2nd try from home with timer
+string=input("Enter your string ")
+
+for i in range(0,len(string)):
+  main=ord(string[i])
+  #Checking for Samller case
+  if main>=97 and main<=122:
+    # transforming into upper case
+    main-=32
+    # getting each alphabet's position number
+    diff=main-64
+    #since main is holding the carecter so i will just add its position once
+    main+=diff
+    #checking for charecter leak
+    if main>96:
+      main-=26
+    print(chr(main),end="")
+
+  #Checking for upper case
+  elif main>=65 and main<=90:
+    # transforming into lower case
+    main+=32
+    # getting each alphabet's position number
+    diff=main-96
+    #since main is holding the carecter so i will just add its position once
+    main+=diff
+    #checking for charecter leak
+    if main>122:
+      main-=26
+    print(chr(main),end="")
+  # checking for number
+  elif main>=48 and main<=57:
+    substracting the number from 9 then printing that
+    print(9-int(chr(main)),end="")
+  # anything except alphabet and number which is special case, printing as it is
+  else:
+    print(chr(main),end="")
