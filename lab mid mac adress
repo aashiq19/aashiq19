@@ -1,0 +1,22 @@
+#find valid mac adrress
+stri=input("Enter your mac adress =")
+
+isMac=True
+#total lenght of mac adress is is 17 
+if len(stri)!=17:
+    print("INVALID 1")
+    isMac=False
+if(isMac==True):
+    if (ord(stri[2])!=58 and ord(stri[5])!=58 and ord(stri[8])!=58  and ord(stri[11])!=58 and ord(stri[14])!=58) and (ord(stri[2])!=45 and ord(stri[5])!=45 and ord(stri[8])!=45 and ord(stri[11])!=45 and ord(stri[11])!=45 and ord(stri[14])!=45):
+        print("INVALID 2")
+        isMac=False
+# 2 5 8 11 14 
+if(isMac==True):
+    for i in range(0,len(stri)):
+        if ord(stri[i])!=58 and ord(stri[i])!=45 and (not((ord(stri[i])>=48 and ord(stri[i])<=57))) and (not((ord(stri[i]))>=65 and ord(stri[i])<=70)) and (not((ord(stri[i])>=97 and ord(stri[i])<=102))):
+            # (ord(stri[i])>=48 and ord(stri[i])<=57) and ((ord(stri[i]))>=65 and ord(stri[i])<=70) and ((ord(stri[i])>=97 and ord(stri[i])<=102)
+            print("INVALID 3")
+            isMac=False
+            break
+if(isMac==True):
+    print("VALID")
