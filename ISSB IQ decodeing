@@ -1,0 +1,26 @@
+str1=input("Enter your 1st string")
+str2=input("Enter your 2nd string")
+str3=input("Enter your decodeing string")
+
+
+for i in range(0,len(str1)):
+    if ord(str2[i])<=90 and ord(str2[i])>=65 and ord(str1[i])<=90 and ord(str1[i])>=65:
+        diff=ord(str2[i])-ord(str1[i])
+
+        tmp=ord(str3[i])+diff
+        # leak handleing
+        if tmp<65:
+            tmp+=26
+        elif tmp>90:
+            tmp-=26
+        print(chr(tmp),end="")    
+    elif ord(str2[i])<=122 and ord(str2[i])>=97 and ord(str1[i])<=122 and ord(str1[i])>=97:
+        diff=ord(str2[i])-ord(str1[i])
+
+        tmp=ord(str3[i])+diff
+        # leak handleing
+        if tmp<97:
+            tmp+=26
+        elif tmp>122:
+            tmp-=26
+        print(chr(tmp),end="")
