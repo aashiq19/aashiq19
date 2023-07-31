@@ -1,0 +1,31 @@
+#insert type of def, arg: list, index, element
+def arr(lst,indx,elmnt):
+    # works only for positive index
+    if indx>0:
+        if indx >len(lst)+1:
+            print("index error")
+        else:    
+            lst.append(lst[len(lst)-1])
+            for i in range(len(lst)-2,indx-1,-1):
+                lst[i]=lst[i-1]
+            lst[indx]=elmnt
+
+    else:
+    # works for negative index
+
+        if indx < -len(lst)-1:
+            print("index error")
+        else:
+            lst.append(lst[len(lst)-1])
+            for i in range(len(lst)-2,len(lst)+indx-1,-1):
+                lst[i]=lst[i-1]
+            lst[indx]=elmnt
+
+lst=[1,2,3,4,5,6,7]
+lst1=[1,2,3,4,5,6,7]
+
+print(lst)
+arr(lst,len(lst),10)
+print(lst)
+arr(lst1,-len(lst),10)
+print(lst1)
