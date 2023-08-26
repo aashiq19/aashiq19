@@ -1,0 +1,27 @@
+st="00-07-E9-63-CE-5B"
+st="01:00:5e:ce:f9:53"
+st="E9-63-7-ABD-09"
+flag=True
+dash=(2,5,8,11,14)
+if st[2]!="-" and st[2]!=":":
+    print("INVALID 1")
+    flag=False
+else:
+    sign=ord(st[2])
+    if len(st)!=17:
+        print("INVALID 2")
+        flag=False
+    else:
+        for i in range(0,len(st)):
+            tmp=ord(st[i])
+            if i not in dash and ( (ord("0")>tmp and ord("9")<tmp) or (ord("A")>tmp and ord("F")<tmp) or (ord("a")>tmp and ord("f")<tmp)):
+                print("INVALID 3")
+                flag=False
+                break
+            elif i in dash:
+                if tmp!=sign:
+                    print("INVALID 4")
+                    flag=False
+                    break
+if flag:
+    print("VALID")
