@@ -1,0 +1,28 @@
+def bracu_library(dic):
+    total=0
+    new={}
+    for i in dic:
+        if dic[i][0] not in new:
+            new[dic[i][0]]=[i]
+        else:
+            new[dic[i][0]].append(i)
+    for i in new:
+        if len(new[i])>2:
+            tmp=[]
+            tmp.append(new[i][0])
+            tmp.append(new[i][1])
+            new[i]=tmp
+    for i in new:
+        for j in range(0,len(new[i])):
+            total+=dic[new[i][j]][1]
+    for i in new:
+        new[i]=tuple(new[i])
+    print(new)
+    print(f"Total quantity:{total}")
+books1 = {
+    'Artificial Intelligence: A Modern Approach': ['CSE422', 25],
+    'Discrete Mathematics and Its Applications': ['CSE230', 14],
+    'Elementary Probability for Applications': ['CSE230', 21],
+    'Digital Design Principles And Practices': ['CSE260', 25],
+    'Essentials of Discrete Mathematics': ['CSE230', 10] }
+bracu_library(books1)
