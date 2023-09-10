@@ -1,0 +1,40 @@
+# Main addition is done here!
+def bin_sum(num1,num2):
+    carry=0
+    ans=""
+    num1,num2=bin_formatter(num1,num2)
+    for i in range(len(num1)-1,-1,-1):
+        digit1=int(num1[i])
+        digit2=int(num2[i])
+        sum=digit1+digit2+carry
+        if sum==0 or sum==1:
+            ans+=str(sum)
+            carry=0
+        elif sum==2:
+            ans+="0"
+            carry=1
+        elif sum==3:
+            ans+="1"
+            carry=1
+    ans+=str(carry)
+    print(f"Bin of {num1}+{num2}={ans[len(ans)-1::-1]}")
+# Fromatting of the number is done here!
+def bin_formatter(num1,num2):
+    num1=str(num1)
+    num2=str(num2)
+    if  len(num1)==len(num2):
+        return num1,num2
+    elif len(num1)>len(num2):
+        new=""
+        for i in range(len(num1)-len(num2)):
+            new+="0"
+        new+=num2
+        return num1,new
+    else:
+        new=""
+        for i in range(len(num2)-len(num1)):
+            new+="0"
+        new+=num1
+        return new,num2
+bin_sum(10100,1)
+# print(bin_formatter(100000000000,1000))
