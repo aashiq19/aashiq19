@@ -1,0 +1,51 @@
+#include<stdio.h>
+
+int main (){
+    char str[100];
+    int idx=0,len=0,tmp=0,tmpIdx=0,tmpLen=0;
+    gets(str);
+    for(int i=0;str[i]!='\0';i++){
+        if(str[i]==' '){
+            if(len<tmpLen){
+                len=tmpLen;
+                idx=tmpIdx;
+            }
+            tmpLen=0;
+            tmpIdx=i+1;
+        }        
+        else{
+            tmpLen++;
+        }
+    }
+    if(len<tmpLen){
+        len=tmpLen;
+        idx=tmpIdx;
+    }
+
+    for(int i=idx ; i<idx+len ;i ++){
+        printf("%c",str[i]);
+    }
+    return 0;
+}
+
+
+TASK 2
+
+
+#include<stdio.h>
+
+int main (){
+    char str[100];
+    gets(str);
+    for(int i=0;str[i]!='\0';i++){
+        if(str[i]==' '){
+            printf("\n");
+        }        
+        else{
+            printf("%c",str[i]);
+        }
+       
+    }
+  
+    return 0;
+}
